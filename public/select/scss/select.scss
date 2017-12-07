@@ -1,0 +1,72 @@
+@import "compass/css3";
+@import "compass/typography/lists/bullets";
+@import "compass/typography/text/ellipsis";
+.xu-select,.xu-select[data-role="down"]{
+	@include inline-block();
+	position:relative;
+	font-size:12px;
+	.select-show{
+		@include inline-block();
+		padding:4px 8px;
+		color:rgba(3,153,220,1);
+		&:hover{
+			color:rgba(3,153,220,0.618);
+			text-decoration:none;
+		}
+		b{
+			i{
+				margin-left:4px;
+			}
+		}
+	}
+	.select-list{
+		display:none;
+		position:absolute;
+		@include no-bullets();
+		@include border-radius(4px);
+		left:0;
+		padding:2px 0;
+		background-color:rgba(240,240,240,0.618);
+		margin-bottom:0;
+		li{
+			max-width:80px;
+			a{
+				@include inline-block();
+				@include ellipsis();
+				width:100%;
+				padding:2px 0 2px 8px;
+				color:rgba(3,153,220,1);
+				text-decoration:none;
+				&:hover{
+					text-decoration:none;
+					background-color:rgba(3,152,220,1);
+					color:rgba(255,255,255,1);
+				}
+			}
+		}
+		li.list-divider{
+			height:1px;
+			background-color:rgba(230,230,230,1);
+		}
+	}
+}
+
+.xu-select[data-role="up"]{
+	.select-show{
+		b{
+			@at-root(without:role){
+				.caret{
+					border-bottom:4px dashed;
+					border-top:4px solid transparent;
+					border-left:4px solid transparent;
+					border-right:4px solid transparent;
+					vertical-align:baseline;
+					
+				}
+			}
+		}
+	}
+	.select-list{
+		bottom:26px;
+	}
+}
